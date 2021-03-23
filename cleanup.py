@@ -1,16 +1,19 @@
 import boto3
 import time
 
-awsProfileName = 'put your profile name here'
+awsProfileName = "put your profile name here"
 search = "you should change me"
 
 session = boto3.Session(profile_name=awsProfileName)
 s3 = session.client('s3')
 
-print(f'** WARNING, This will delete all buckets with name containing: { search }')
-
 response = s3.list_buckets()
-for bucket in [bucket for bucket in response['Buckets'] if search in bucket['Name'] ]:
+bucketList = [bucket for bucket in response['Buckets'] if search in bucket['Name'] ]
+
+print(f'** WARNING, This will delete all buckets with name containing: { search } - { len(bucketList)} buckets found')
+time.sleep(5)
+
+for bucket in bucketList:
     print(f'Deleting bucket: {bucket["Name"]} in 3s')
     bucketName = bucket["Name"]
     time.sleep(3)
