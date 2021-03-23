@@ -1,7 +1,7 @@
 import boto3
 import time
 
-awsprofileNamerofile = 'put your profile name here'
+awsProfileName = 'put your profile name here'
 search = "you should change me"
 
 session = boto3.Session(profile_name=awsProfileName)
