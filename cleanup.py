@@ -1,8 +1,8 @@
 import boto3
 import time
 
-awsprofileName = 'myprofilename'
-search = "textstring"
+awsprofileName = 'put your profile name here'
+search = "you should change me"
 
 session = boto3.Session(profile_name=awsprofileName)
 s3 = session.client('s3')
