@@ -1,10 +1,10 @@
 import boto3
 import time
 
-awsprofileName = 'put your profile name here'
+awsprofileNamerofile = 'put your profile name here'
 search = "you should change me"
 
-session = boto3.Session(profile_name=awsprofileName)
+session = boto3.Session(profile_name=awsProfileName)
 s3 = session.client('s3')
 
 print(f'** WARNING, This will delete all buckets with name containing: { search }')
